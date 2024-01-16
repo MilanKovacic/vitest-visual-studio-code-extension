@@ -154,7 +154,7 @@
     }
   },
   "scripts": {
-    "vscode:prepublish": "yarn run compile",
+    "vscode:prepublish": "npm run compile",
     "compile": "tsup ./src/extension.ts --external vscode --minify",
     "watch": "tsup ./src/extension.ts --external vscode --watch --sourcemap",
     "test": "vitest run",
