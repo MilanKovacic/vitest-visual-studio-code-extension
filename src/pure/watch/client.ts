@@ -1,6 +1,6 @@
 import WebSocket from 'ws'
 import { computed, effect, reactive, ref, shallowRef } from '@vue/reactivity'
-import type { ResolvedConfig, Task, TaskResult, WebSocketEvents } from 'vitest'
+import type { ResolvedConfig, Task, TaskMeta, TaskResult, TaskResultPack, WebSocketEvents } from 'vitest'
 import { log } from '../../log'
 import { createClient } from './ws-client'
 
@@ -63,27 +63,28 @@ export function buildWatchClient(
   // load result from first run manually
   // otherwise those record will not be recorded to client.state
   const loadingPromise = client.waitForConnection().then(async () => {
-    const files = await client.rpc.getFiles()
-    const idResultPairs: [string, TaskResult][] = []
-    let isRunning = files.length === 0
-    files && travel(files)
-    function travel(tasks: Task[]) {
-      for (const task of tasks) {
-        if (task.type === 'test') {
-          if (task.result)
-            idResultPairs.push([task.id, task.result])
-          else if (task.mode === 'run')
-            isRunning = true
-        }
-        else {
-          travel(task.tasks)
-        }
+  const files = await client.rpc.getFiles();
+  const idResultPairs: TaskResultPack[] = [];
+  let isRunning = files.length === 0;
+  files && travel(files);
+
+  function travel(tasks: Task[]) {
+    for (const task of tasks) {
+      if (task.type === 'test') {
+        if (task.result)
+          idResultPairs.push([task.id, task.result, {}]);
+        else if (task.mode === 'run')
+          isRunning = true;
+      } else {
+        // @ts-ignore
+        travel(task.tasks);
       }
     }
+  }
 
-    client.state.updateTasks(idResultPairs)
-    return isRunning
-  })
+  client.state.updateTasks(idResultPairs);
+  return isRunning;
+});
 
   return {
     client,

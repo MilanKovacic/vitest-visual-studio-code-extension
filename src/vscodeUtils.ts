@@ -1,7 +1,7 @@
 import { TextDecoder } from 'util'
 import type { Uri } from 'vscode'
 import { workspace } from 'vscode'
-import minimatch from 'minimatch'
+import { minimatch } from 'minimatch'
 import type { ResolvedConfig } from 'vitest'
 import { getCombinedConfig } from './config'
 
