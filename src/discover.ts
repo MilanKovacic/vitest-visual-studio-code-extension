@@ -1,6 +1,6 @@
 import path, { sep } from 'path'
 import * as vscode from 'vscode'
-import minimatch from 'minimatch'
+import { minimatch } from 'minimatch'
 import type { ResolvedConfig } from 'vitest'
 import parse from './pure/parsers'
 import type { NamedBlock } from './pure/parsers/parser_nodes'
