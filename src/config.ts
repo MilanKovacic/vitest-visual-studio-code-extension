@@ -2,6 +2,7 @@ import * as vscode from 'vscode'
 import semver from 'semver'
 import type { WorkspaceConfiguration, WorkspaceFolder } from 'vscode'
 import type { ResolvedConfig } from 'vitest'
+import { configDefaults } from 'vitest/config'
 import { isDefinitelyVitestEnv, mayBeVitestEnv } from './pure/isVitestEnv'
 import { getVitestCommand, getVitestVersion, isNodeAvailable } from './pure/utils'
 import { log } from './log'
@@ -52,8 +53,8 @@ export function getConfig(workspaceFolder?: WorkspaceFolder | vscode.Uri | strin
 export function getCombinedConfig(config: ResolvedConfig, workspaceFolder?: WorkspaceFolder | vscode.Uri | string) {
   const vitestConfig = getConfig(workspaceFolder)
   return {
-    exclude: vitestConfig.exclude?.concat(config.exclude) || defaultExclude,
-    include: vitestConfig.include?.concat(config.include) || defaultInclude,
+    exclude: vitestConfig.exclude?.concat(config.exclude) || configDefaults.exclude,
+    include: vitestConfig.include?.concat(config.include) || configDefaults.include,
   }
 }
 
