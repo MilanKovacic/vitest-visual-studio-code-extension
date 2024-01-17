@@ -362,8 +362,8 @@ export function syncTestStatusToVsCode(
   ) {
     const set = new Set(vscode)
     for (const task of vitest) {
-      const data = matchTask(task, set, task.type)
-      if (task.type === 'test') {
+      const data = matchTask(task, set)
+      if (task.type === 'test' || task.type === 'custom') {
         if (task.result == null) {
           if (finished) {
             finishedTest && finishedTest.add(data.item)

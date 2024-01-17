@@ -69,7 +69,7 @@ export function buildWatchClient(
     files && travel(files)
     function travel(tasks: Task[]) {
       for (const task of tasks) {
-        if (task.type === 'test') {
+        if (task.type === 'test' || task.type === 'custom') {
           if (task.result)
             idResultPairs.push([task.id, task.result])
           else if (task.mode === 'run')
