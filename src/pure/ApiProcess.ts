@@ -181,7 +181,7 @@ export class ApiProcess {
 
   dispose() {
     this.disposed = true
-    // this.vitestState?.client.dispose()
+    this.vitestState?.client.dispose()
     if (this.process && this.process.pid)
       kill(this.process.pid)
     this.vitestState = undefined

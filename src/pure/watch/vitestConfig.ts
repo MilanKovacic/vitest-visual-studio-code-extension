@@ -20,6 +20,7 @@ async function connectAndFetchConfig(
     reactive: reactive as any,
     reconnectInterval,
     reconnectTries,
+    onFailedConnection: () => onFailedConnection?.(),
   })
 
   return new Promise<ResolvedConfig>((resolve, reject) => {
@@ -32,7 +33,7 @@ async function connectAndFetchConfig(
         ws.addEventListener('open', () => {
           log.info('WS Opened')
           client.rpc.getConfig().then((_config) => {
-            // client.dispose()
+            client.dispose()
             resolve(_config)
           })
         })

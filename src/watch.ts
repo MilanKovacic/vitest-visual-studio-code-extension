@@ -269,7 +269,7 @@ export class TestWatcher extends Disposable {
       log.info('Stop watch mode')
       this.isWatching.value = false
       this.isRunning.value = false
-      // this.vitestState?.client.dispose()
+      this.vitestState?.client.dispose()
       this.process?.kill()
       this.process = undefined
       this.vitestState = undefined
