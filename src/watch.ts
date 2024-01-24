@@ -281,6 +281,14 @@ export class TestWatcher extends Disposable {
 }
 
 function getSourceFilepathAndLocationFromStack(stack: ParsedStack): { sourceFilepath?: string; line: number; column: number } {
+  if (stack.sourcePos) {
+    return {
+      sourceFilepath: stack.sourcePos.source?.replace(/\//g, path.sep),
+      line: stack.sourcePos.line,
+      column: stack.sourcePos.column,
+    }
+  }
+
   return {
     sourceFilepath: stack.file.replace(/\//g, path.sep),
     line: stack.line,
@@ -355,11 +363,6 @@ export function syncTestStatusToVsCode(
     const set = new Set(vscode)
     for (const task of vitest) {
       const data = matchTask(task, set, task.type)
-
-      if(!data) {
-        continue;
-      }
-
       if (task.type === 'test') {
         if (task.result == null) {
           if (finished) {
@@ -382,7 +385,7 @@ export function syncTestStatusToVsCode(
             case 'fail':
               run.failed(
                 data.item,
-                testMessageForTestError(data.item, task.result.errors?.[0]),
+                testMessageForTestError(data.item, task.result.error),
                 task.result.duration,
               )
               finishedTest && finishedTest.add(data.item)
@@ -403,9 +406,7 @@ export function syncTestStatusToVsCode(
         }
       }
       else {
-        if ('tasks' in task) {
-          sync(run, (data as TestDescribe).children, task.tasks);
-        }
+        sync(run, (data as TestDescribe).children, task.tasks)
       }
     }
   }
@@ -413,12 +414,8 @@ export function syncTestStatusToVsCode(
   function matchTask(
     task: Task,
     candidates: Set<TestDescribe | TestCase>,
-    type: 'suite' | 'test' | 'custom',
-  ): TestDescribe | TestCase | undefined {
-    if (type === 'custom') {
-      return undefined
-    }
-
+    type: 'suite' | 'test',
+  ): TestDescribe | TestCase {
     let ans: (TestDescribe | TestCase) | undefined
     for (const candidate of candidates) {
       if (type === 'suite' && !(candidate instanceof TestDescribe))
