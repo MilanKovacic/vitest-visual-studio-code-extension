@@ -6,15 +6,23 @@
  *
  */
 
-import type { ParseResult } from './parser-nodes'
-import { parse as babelParser } from './babel-parser'
-import { parseOptions } from './helper'
+import type { ParseResult } from "./parser-nodes";
+import { parse as babelParser } from "./babel-parser";
+import { parseOptions } from "./helper";
 
 /**
  * parse the test file by selecting proper parser based on the file extension.
  *
  * exception will be throw should the underlying parse failed.
  */
-export default function parse(filePath: string, serializedData?: string, strictMode = false): ParseResult {
-  return babelParser(filePath, serializedData, parseOptions(filePath, strictMode))
+export default function parse(
+  filePath: string,
+  serializedData?: string,
+  strictMode = false,
+): ParseResult {
+  return babelParser(
+    filePath,
+    serializedData,
+    parseOptions(filePath, strictMode),
+  );
 }
