@@ -1,7 +1,7 @@
 {
   "name": "vitest-lab",
   "displayName": "Vitest Lab",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Run and debug Vitest test cases",
   "icon": "img/icon.png",
   "preview": true,
