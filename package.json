@@ -1,7 +1,7 @@
 {
-  "name": "vitest-explorer",
-  "displayName": "Vitest",
-  "version": "0.2.43",
+  "name": "vitest-lab",
+  "displayName": "Vitest Lab",
+  "version": "0.1.0",
   "description": "Run and debug Vitest test cases",
   "icon": "img/icon.png",
   "preview": true,
@@ -13,16 +13,16 @@
   ],
   "license": "MIT",
   "author": "zxch3n",
-  "publisher": "ZixuanChen",
+  "publisher": "milan-kovacic",
   "repository": {
     "type": "git",
-    "url": "https://github.com/vitest-dev/vscode.git"
+    "url": "https://github.com/MilanKovacic/vitest-visual-studio-code-extension.git"
   },
   "bugs": {
-    "url": "https://github.com/vitest-dev/vscode/issues"
+    "url": "https://github.com/MilanKovacic/vitest-visual-studio-code-extension/issues"
   },
   "engines": {
-    "vscode": "^1.77.0"
+    "vscode": "^1.85.0"
   },
   "categories": [
     "Testing"
