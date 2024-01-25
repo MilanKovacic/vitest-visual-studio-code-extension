@@ -62,8 +62,8 @@ export function getCombinedConfig(
 ) {
   const vitestConfig = getConfig(workspaceFolder);
   return {
-    exclude: vitestConfig.exclude?.concat(config.exclude) || [], // configDefaults.exclude,
-    include: vitestConfig.include?.concat(config.include) || [], // configDefaults.include,
+    exclude: vitestConfig.exclude?.concat(config.exclude) || defaultExclude,
+    include: vitestConfig.include?.concat(config.include) || defaultInclude,
   };
 }
 
