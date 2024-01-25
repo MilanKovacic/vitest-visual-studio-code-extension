@@ -1,6 +1,6 @@
 import type * as vscode from 'vscode'
 import { discoverTestFromFileContent } from './discover'
-import { getContentFromFilesystem } from './vscodeUtils'
+import { getContentFromFilesystem } from './vscode-utils'
 
 export const WEAKMAP_TEST_DATA = new WeakMap<vscode.TestItem, TestData>()
 // FIXME: GC

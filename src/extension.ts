@@ -12,13 +12,13 @@ import { TestFileDiscoverer } from './discover'
 import { log } from './log'
 import {
   debugHandler, gatherTestItemsFromWorkspace, runHandler, updateSnapshot,
-} from './runHandler'
-import { StatusBarItem } from './StatusBarItem'
-import { TestFile, WEAKMAP_TEST_DATA } from './TestData'
+} from './run-handler'
+import { StatusBarItem } from './status-bar-item'
+import { TestFile, WEAKMAP_TEST_DATA } from './test-data'
 import { TestWatcher } from './watch'
 
 import type { VitestWorkspaceConfig } from './config'
-import { fetchVitestConfig } from './pure/watch/vitestConfig'
+import { fetchVitestConfig } from './pure/watch/vitest-config'
 
 export async function activate(context: vscode.ExtensionContext) {
   await detectVitestEnvironmentFolders()

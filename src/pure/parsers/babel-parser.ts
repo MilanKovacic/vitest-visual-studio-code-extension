@@ -15,12 +15,12 @@ import * as parser from '@babel/parser'
 import type {
   ParsedNode,
   ParsedNodeType,
-} from './parser_nodes'
+} from './parser-nodes'
 import {
   NamedBlock,
   ParseResult,
   ParsedRange,
-} from './parser_nodes'
+} from './parser-nodes'
 import { parseOptions } from './helper'
 
 const _getASTfor = (

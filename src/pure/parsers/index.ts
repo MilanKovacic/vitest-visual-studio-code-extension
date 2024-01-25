@@ -6,8 +6,8 @@
  *
  */
 
-import type { ParseResult } from './parser_nodes'
-import { parse as babelParser } from './babel_parser'
+import type { ParseResult } from './parser-nodes'
+import { parse as babelParser } from './babel-parser'
 import { parseOptions } from './helper'
 
 /**

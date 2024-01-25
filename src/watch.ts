@@ -13,8 +13,8 @@ import { getConfig, getRootConfig } from './config'
 import type { TestFileDiscoverer } from './discover'
 import { execWithLog } from './pure/utils'
 import { buildWatchClient } from './pure/watch/client'
-import type { TestFile } from './TestData'
-import { TestCase, TestDescribe, WEAKMAP_TEST_DATA } from './TestData'
+import type { TestFile } from './test-data'
+import { TestCase, TestDescribe, WEAKMAP_TEST_DATA } from './test-data'
 import { log } from './log'
 
 export interface DebuggerLocation { path: string; line: number; column: number }

@@ -3,16 +3,16 @@ import * as vscode from 'vscode'
 import { minimatch } from 'minimatch'
 import type { ResolvedConfig } from 'vitest'
 import parse from './pure/parsers'
-import type { NamedBlock } from './pure/parsers/parser_nodes'
-import type { TestData } from './TestData'
+import type { NamedBlock } from './pure/parsers/parser-nodes'
+import type { TestData } from './test-data'
 import {
   TestCase,
   TestDescribe,
   TestFile,
   WEAKMAP_TEST_DATA,
   testItemIdMap,
-} from './TestData'
-import { shouldIncludeFile } from './vscodeUtils'
+} from './test-data'
+import { shouldIncludeFile } from './vscode-utils'
 
 import { getCombinedConfig, vitestEnvironmentFolders } from './config'
 import { log } from './log'

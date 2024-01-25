@@ -14,12 +14,12 @@ import {
   WEAKMAP_TEST_DATA,
   getAllTestCases,
   testItemIdMap,
-} from './TestData'
+} from './test-data'
 import { getConfig } from './config'
 import { TestWatcher, syncFilesTestStatus } from './watch'
 import { log } from './log'
 import type { TestFileDiscoverer } from './discover'
-import type { StartConfig } from './pure/ApiProcess'
+import type { StartConfig } from './pure/api-process'
 
 export async function runHandler(
   ctrl: vscode.TestController,
