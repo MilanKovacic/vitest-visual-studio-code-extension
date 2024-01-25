@@ -7,6 +7,7 @@ module.exports = {
     "eslint-plugin-tsdoc",
     "promise",
     "unicorn",
+    "only-warn",
   ],
   extends: [
     "airbnb-base",
