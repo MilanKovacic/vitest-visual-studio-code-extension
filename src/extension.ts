@@ -81,6 +81,13 @@ export async function activate(context: vscode.ExtensionContext) {
       fileDiscoverer.discoverTestFromDoc(ctrl, e.document),
     ),
   );
+
+  const cancellationTokenSource = new vscode.CancellationTokenSource();
+
+  // Workaround: user might access the testing panel before the extension is activated, in which case the test list is empty
+  if (ctrl.refreshHandler) {
+    await ctrl.refreshHandler(cancellationTokenSource.token);
+  }
 }
 
 function workspacesCompatibilityCheck(
