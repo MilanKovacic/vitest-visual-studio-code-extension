@@ -1,19 +1,8 @@
-<p align="center">
-  <br />
-  <a title="Learn more about Vitest for VSCode" href="https://github.com/vitest-dev/vscode"><img src="./img/cover.png" alt="Vitest for VSCode Logo" width="50%" /></a>
-
-</p>
-
-<h2 align="center">
-  <b>Vitest for VSCode</b>
-</h2>
+# Vitest extension for Visual Studio Code</b>
 
 <br />
 
 ![](https://i.ibb.co/bJCbCf2/202203292020.gif)
-
-> This extension is powered by
-> [vscode testing api](https://code.visualstudio.com/api/extension-guides/testing).
 
 # Features
 
@@ -24,10 +13,10 @@
 
 # Requirements
 
-- Require VSCode's version >= July 2021 (version 1.59).
-- Require Vitest's version >= v0.12.0
+- Visual Studio Code >= November (version 1.85.0).
+- Vitest >= 1.0.0
 
-# Config
+# Configuration
 
 - `vitest.include` and `vitest.exclude`` are deprecated. The extension now loads the include and exclude paths from your vitest config file.
 - `vitest.enable`: This plugin will try to detect whether the current project is
@@ -41,21 +30,7 @@
 - `vitest.debugExclude`: Automatically skip files covered by these glob patterns. Default:
   `[\"<node_internals>/**\", \"**/node_modules/**\"]`
 
-# Screenshots
-
-**Filter tests by status**
-
-<img src="https://i.ibb.co/K903GYL/Screen-Recording-2022-03-29-at-20-41-54.gif"/>
-
-**Debug**
-
-<img src="https://i.ibb.co/SXtF6Yp/Screen-Recording-2022-03-29-at-20-49-54.gif"/>
-
-**Inspect console output**
-
-![](https://i.ibb.co/gMZWXZQ/Screen-Recording-2022-03-29-at-20-59-31.gif)
-
-# FAQ
+# Frequently Asked Questions
 
 #### **How can I use it in monorepo?**
 
@@ -68,5 +43,3 @@ You can use VS Code command `add folder to workspace` to add the sub directory. 
 #### **`test.each` is not working**
 
 Dynamic test name is not supported yet. This extension currently relies on the babel parser to calculate the positions of tests statically.
-
-Related issue: https://github.com/vitest-dev/vscode/issues/133
