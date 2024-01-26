@@ -10,7 +10,7 @@ import {
   isNodeAvailable,
 } from "./pure/utils";
 import { log } from "./log";
-export const extensionId = "zxch3n.vitest-explorer";
+export const extensionId = "milan-kovacic.vitest-lab";
 
 // Copied from https://github.com/vitest-dev/vitest/blob/main/packages/vitest/src/defaults.ts
 // "import { configDefaults } from 'vitest'" throws unexpected URL error
