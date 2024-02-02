@@ -22,7 +22,7 @@
     "url": "https://github.com/MilanKovacic/vitest-visual-studio-code-extension/issues"
   },
   "engines": {
-    "vscode": "^1.85.0"
+    "vscode": "^1.77.0"
   },
   "categories": [
     "Testing"
@@ -172,7 +172,7 @@
     "@types/glob": "^8.1.0",
     "@types/node": "^20.11.4",
     "@types/semver": "^7.5.6",
-    "@types/vscode": "^1.85.0",
+    "@types/vscode": "^1.77.0",
     "@types/ws": "^8.5.10",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
     "@typescript-eslint/parser": "^6.0.0",
