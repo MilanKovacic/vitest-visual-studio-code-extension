@@ -1,5 +1,7 @@
 # Vitest extension for Visual Studio Code</b>
 
+<span style="font-size:larger;">Available on the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=milan-kovacic.vitest-lab).</span>
+
 <br />
 
 ![](https://i.ibb.co/bJCbCf2/202203292020.gif)
